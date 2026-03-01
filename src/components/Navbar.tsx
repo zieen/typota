@@ -1,4 +1,3 @@
-import React from 'react';
 import { Download, Copy, Settings, Type } from 'lucide-react';
 import { useStore } from '../store/useStore';
 
