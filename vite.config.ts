@@ -8,7 +8,7 @@ export default defineConfig({
     rollupOptions: {
       output: {
         manualChunks: {
-          'monaco-editor': ['@monaco-editor/react', 'monaco-editor'],
+          'monaco-editor': ['@monaco-editor/react'],
           'markdown': ['react-markdown', 'remark-gfm', 'rehype-raw'],
           'vendor': ['react', 'react-dom'],
           'ui': ['lucide-react', 'zustand']
