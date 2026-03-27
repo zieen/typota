@@ -1,4 +1,5 @@
-import { create } from 'zustand';
+import { create, type StateCreator } from 'zustand';
+import { persist } from 'zustand/middleware';
 
 interface EditorState {
   markdown: string;
@@ -26,7 +27,14 @@ function greet() {
 Enjoy writing!
 `;
 
-export const useStore = create<EditorState>((set) => ({
-  markdown: defaultMarkdown,
-  setMarkdown: (text) => set({ markdown: text }),
-}));
+export const useStore = create<EditorState>()(
+  persist(
+    (set) => ({
+      markdown: defaultMarkdown,
+      setMarkdown: (text: string) => set({ markdown: text }),
+    }),
+    {
+      name: 'typota-markdown-storage',
+    }
+  ) as unknown as StateCreator<EditorState>
+);
