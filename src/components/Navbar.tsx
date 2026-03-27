@@ -1,8 +1,8 @@
-import { Download, Copy, Settings, Type } from 'lucide-react';
+import { Download, Copy, Settings, Type, PanelLeftClose, PanelLeft } from 'lucide-react';
 import { useStore } from '../store/useStore';
 
 export const Navbar: React.FC = () => {
-  const { markdown } = useStore();
+  const { markdown, isPreviewOnly, togglePreviewOnly } = useStore();
 
   const handleCopy = () => {
     navigator.clipboard.writeText(markdown);
@@ -45,6 +45,14 @@ export const Navbar: React.FC = () => {
         >
           <Download size={16} />
           <span className="hidden sm:inline">Export</span>
+        </button>
+        <button 
+          onClick={togglePreviewOnly}
+          className={`p-2 rounded-lg transition-colors flex items-center gap-2 text-sm ${isPreviewOnly ? 'text-indigo-400 bg-indigo-500/10' : 'text-neutral-400 hover:text-white hover:bg-neutral-800'}`}
+          title={isPreviewOnly ? "Show Editor" : "Hide Editor"}
+        >
+          {isPreviewOnly ? <PanelLeft size={16} /> : <PanelLeftClose size={16} />}
+          <span className="hidden sm:inline">{isPreviewOnly ? "Show Editor" : "Reader Mode"}</span>
         </button>
         <div className="w-px h-6 bg-neutral-800 mx-2" />
         <button className="p-2 text-neutral-400 hover:text-white hover:bg-neutral-800 rounded-lg transition-colors">

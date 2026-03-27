@@ -4,6 +4,8 @@ import { persist } from 'zustand/middleware';
 interface EditorState {
   markdown: string;
   setMarkdown: (text: string) => void;
+  isPreviewOnly: boolean;
+  togglePreviewOnly: () => void;
 }
 
 const defaultMarkdown = `# Welcome to Typota
@@ -32,6 +34,8 @@ export const useStore = create<EditorState>()(
     (set) => ({
       markdown: defaultMarkdown,
       setMarkdown: (text: string) => set({ markdown: text }),
+      isPreviewOnly: false,
+      togglePreviewOnly: () => set((state: EditorState) => ({ isPreviewOnly: !state.isPreviewOnly })),
     }),
     {
       name: 'typota-markdown-storage',
