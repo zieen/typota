@@ -13,7 +13,7 @@ function App() {
           <EditorPane />
         </section>
         <section className="w-1/2 min-w-[300px] h-full overflow-hidden bg-neutral-950 relative">
-          <div className="absolute inset-0 bg-grid-neutral-800/[0.04] bg-[size:16px_16px]" />
+          <div className="absolute inset-0 bg-grid-neutral-800/[0.04] bg-[size:16px_16px] pointer-events-none z-0" />
           <PreviewPane />
         </section>
       </main>

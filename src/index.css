@@ -8,6 +8,13 @@
   }
 }
 
+@layer utilities {
+  .bg-grid-neutral-800\/\[0\.04\] {
+    background-image: linear-gradient(to right, rgb(38 38 38 / 0.04) 1px, transparent 1px),
+                      linear-gradient(to bottom, rgb(38 38 38 / 0.04) 1px, transparent 1px);
+  }
+}
+
 /* Custom scrollbar for a sleek look */
 ::-webkit-scrollbar {
   width: 8px;
